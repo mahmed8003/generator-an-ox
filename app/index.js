@@ -129,7 +129,7 @@ var AnOxGenerator = yeoman.generators.Base.extend({
         this.spawnCommand('grunt', ['build_app']).on('close', function () {
           self.log(chalk.green('Ox is ready'));
 
-          var str = 'follow commands \'cd ' + self.app_name + '\' and then ' + '\'node ./build/app.js\' to start the server';
+          var str = 'Follow commands \'cd ' + self.app_name + '\' and then ' + '\'node ./build/app.js\' to start the server';
           self.log(chalk.green(str));
         });
       }.bind(this)
