@@ -1,0 +1,7 @@
+language: node_js
+node_js:
+  - '0.10'
+before_install:
+  - currentfolder=${PWD##*/}
+  - if [ "$currentfolder" != 'generator-an-ox' ]; then cd .. && eval "mv $currentfolder generator-an-ox" && cd generator-an-ox; fi
+
