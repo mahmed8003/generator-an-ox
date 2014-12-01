@@ -22,7 +22,7 @@
     "node": ">= 0.10.0"
   },
   "dependencies": {
-    "an-ox": "0.1.0",
+    "an-ox": "0.1.2",
     "commander": "2.5.0",
     "grunt": "0.4.5",
     "grunt-cli": "0.1.13",
