@@ -15,7 +15,7 @@
   },
   "main": "build/app.js",
   "scripts": {
-    "prestart": "grunt build_app",
+    "prestart": "./node_modules/.bin/grunt build_app",
     "start": "node ./build/app.js"
   },
   "engines": {
