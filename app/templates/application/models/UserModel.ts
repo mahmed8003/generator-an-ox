@@ -10,21 +10,23 @@ module <%= name_space %> {
         public constructor(){
             super();
             this.count = 25;
-            //OX.Log.info('I am constructor from UserModel');
         }
 
         public static configure() {
-            //OX.Log.info('I am configure from UserModel');
+
         }
 
         public getUser(){
-            //OX.Log.info('I am counter = ' + this.count);
-            //OX.Log.info('User from UserModel');
-            var user = {
+
+            var user:any = {
                 name: 'I am Sparky',
                 age: 1200,
-                location: 'Pluto'
+                location: 'Plato'
             };
+
+            if (this.isLoggedIn()) {
+                user.login_status = 'LoggedIn';
+            }
 
             return user;
         }

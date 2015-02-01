@@ -5,7 +5,7 @@ module <%= name_space %> {
     export class HomeController extends OX.Controller {
 
         public static configure() {
-            this.addFilter(AuthFilter).addAction('index');
+
         }
 
         public constructor(){

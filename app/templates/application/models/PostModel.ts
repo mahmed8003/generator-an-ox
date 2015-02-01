@@ -6,15 +6,14 @@ module <%= name_space %> {
 
         public constructor(){
             super();
-            //OX.Log.info('I am constructor from PostModel');
         }
 
         public static configure() {
-            //OX.Log.info('I am configure from PostModel');
+
         }
 
         public getPost(){
-            //OX.Log.info('Post from PostModel');
+
             var post = {
                 title: 'I am Title',
                 description: 'I am a long long long description'

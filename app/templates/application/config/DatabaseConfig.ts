@@ -3,12 +3,15 @@
 module <%= name_space %> {
 
     export class DatabaseConfig implements OX.DatabaseConfig {
-        public config(config:OX.EnvDBConfig):boolean {
-            return false;
+
+        public config(config:OX.ConfigEnv<OX.DBInfo>):void {
+
         }
-        public connect(config:OX.DBConfig):any {
-            return null;
+
+        public connect(info:OX.DBInfo):any {
+
         }
+
     }
 
 }

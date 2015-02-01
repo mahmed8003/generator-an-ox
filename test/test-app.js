@@ -20,7 +20,7 @@ describe('an-ox:app', function () {
   it('creates files', function () {
     assert.file([
       'bower.json',
-      '_package.json',
+      'package.json',
       '.editorconfig',
       '.jshintrc'
     ]);

@@ -4,8 +4,9 @@ module <%= name_space %> {
 
     export class LoggerConfig implements OX.LoggerConfig {
 
-        public config(loggerInfo:OX.EnvLoggerInfo):void {
-            loggerInfo.development = {
+        public config(config:OX.ConfigEnv<OX.LoggerOptions>):void {
+
+            config.development = {
                 transports: [new OX.ConsoleTransport({
                     level: 'debug',
                     handleExceptions: true,
@@ -15,17 +16,7 @@ module <%= name_space %> {
                 exitOnError: true
             };
 
-            loggerInfo.test = {
-                transports: [new OX.ConsoleTransport({
-                    level: 'debug',
-                    handleExceptions: true,
-                    json: false,
-                    colorize: true
-                })],
-                exitOnError: true
-            };
-
-            loggerInfo.production = {
+            config.production = {
                 transports: [new OX.ConsoleTransport({
                     level: 'debug',
                     handleExceptions: true,
@@ -34,6 +25,18 @@ module <%= name_space %> {
                 })],
                 exitOnError: true
             }
+
+            config.test = {
+                transports: [new OX.ConsoleTransport({
+                    level: 'debug',
+                    handleExceptions: true,
+                    json: false,
+                    colorize: true
+                })],
+                exitOnError: true
+            };
+
+
         }
     }
 }

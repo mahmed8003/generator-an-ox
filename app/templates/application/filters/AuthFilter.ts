@@ -20,6 +20,7 @@ module <%= name_space %> {
         }
 
         after(context:OX.AFContext): void {
+
         }
 
     }

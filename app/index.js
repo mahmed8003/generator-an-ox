@@ -52,10 +52,20 @@ var AnOxGenerator = yeoman.generators.Base.extend({
       this.dest.mkdir('application/views');
       this.dest.mkdir('libraries');
       this.dest.mkdir('public');
+      this.dest.mkdir('public/app');
+      this.dest.mkdir('public/app/collections');
+      this.dest.mkdir('public/app/controllers');
+      this.dest.mkdir('public/app/models');
+      this.dest.mkdir('public/app/routers');
+      this.dest.mkdir('public/app/templates');
+      this.dest.mkdir('public/app/views');
+      this.dest.mkdir('public/app/views/collection');
+      this.dest.mkdir('public/app/views/composite');
+      this.dest.mkdir('public/app/views/item');
+      this.dest.mkdir('public/app/views/layout');
       this.dest.mkdir('public/css');
       this.dest.mkdir('public/images');
       this.dest.mkdir('public/js');
-      this.dest.mkdir('public/views');
 
       // copy gitkeep file
       this.src.copy('_.gitkeep', 'application/controllers/.gitkeep');
@@ -64,10 +74,21 @@ var AnOxGenerator = yeoman.generators.Base.extend({
       this.src.copy('_.gitkeep', 'application/models/.gitkeep');
       this.src.copy('_.gitkeep', 'application/views/.gitkeep');
       this.src.copy('_.gitkeep', 'libraries/.gitkeep');
+
+      this.src.copy('_.gitkeep', 'public/app/collections/.gitkeep');
+      this.src.copy('_.gitkeep', 'public/app/controllers/.gitkeep');
+      this.src.copy('_.gitkeep', 'public/app/models/.gitkeep');
+      this.src.copy('_.gitkeep', 'public/app/routers/.gitkeep');
+      this.src.copy('_.gitkeep', 'public/app/templates/.gitkeep');
+      this.src.copy('_.gitkeep', 'public/app/views/.gitkeep');
+      this.src.copy('_.gitkeep', 'public/app/views/collection/.gitkeep');
+      this.src.copy('_.gitkeep', 'public/app/views/composite/.gitkeep');
+      this.src.copy('_.gitkeep', 'public/app/views/item/.gitkeep');
+      this.src.copy('_.gitkeep', 'public/app/views/layout/.gitkeep');
       this.src.copy('_.gitkeep', 'public/css/.gitkeep');
       this.src.copy('_.gitkeep', 'public/images/.gitkeep');
       this.src.copy('_.gitkeep', 'public/js/.gitkeep');
-      this.src.copy('_.gitkeep', 'public/views/.gitkeep');
+
 
       //
       var context = {
@@ -76,44 +97,54 @@ var AnOxGenerator = yeoman.generators.Base.extend({
       };
 
       // copy favicon
-      this.src.copy('_favicon.ico', 'public/images/favicon.ico');
+      this.src.copy('favicon.ico', 'public/images/favicon.ico');
+      this.src.copy('public/index.html', 'public/index.html');
+      this.src.copy('public/app/app.js', 'public/app/app.js');
+      this.src.copy('public/app/templates/FooterTemplate.ejs', 'public/app/templates/FooterTemplate.ejs');
+      this.src.copy('public/app/templates/HeaderTemplate.ejs', 'public/app/templates/HeaderTemplate.ejs');
+      this.src.copy('public/app/templates/IndexTemplate.ejs', 'public/app/templates/IndexTemplate.ejs');
+
+      this.src.copy('public/app/views/item/FooterView.js', 'public/app/views/item/FooterView.js');
+      this.src.copy('public/app/views/item/HeaderView.js', 'public/app/views/item/HeaderView.js');
+      this.src.copy('public/app/views/item/IndexView.js', 'public/app/views/item/IndexView.js');
 
       // copy views
-      this.src.copy('views/_error.ejs', 'application/views/error.ejs');
-      this.src.copy('views/_footer.ejs', 'application/views/footer.ejs');
-      this.src.copy('views/_header.ejs', 'application/views/header.ejs');
-      this.src.copy('views/_index.ejs', 'application/views/index.ejs');
+      this.src.copy('application/views/error.ejs', 'application/views/error.ejs');
+      this.src.copy('application/views/footer.ejs', 'application/views/footer.ejs');
+      this.src.copy('application/views/header.ejs', 'application/views/header.ejs');
+      this.src.copy('application/views/index.ejs', 'application/views/index.ejs');
 
 
       // copy necessary files
-      this.template('_package.json', 'package.json', context);
-      this.template('_bower.json', 'bower.json', context);
-      this.src.copy('_Gruntfile.js', 'Gruntfile.js');
+      this.template('package.json', 'package.json', context);
+      this.template('bower.json', 'bower.json', context);
+      this.src.copy('webpack.config.js', 'webpack.config.js');
+      this.src.copy('Gruntfile.js', 'Gruntfile.js');
       this.src.copy('_.bowerrc', '.bowerrc');
       this.src.copy('_.gitignore', '.gitignore');
 
       // copy readme
-      this.template('_README.md', 'README.md', context);
+      this.template('README.md', 'README.md', context);
 
       // main ts files
-      this.template('_app.ts', 'app.ts', context);
+      this.template('app.ts', 'app.ts', context);
 
       // ts config files
-      this.template('ts/config/_DatabaseConfig.ts', 'application/config/DatabaseConfig.ts', context);
-      this.template('ts/config/_ExpressConfig.ts', 'application/config/ExpressConfig.ts', context);
-      this.template('ts/config/_GlobalFiltersConfig.ts', 'application/config/GlobalFiltersConfig.ts', context);
-      this.template('ts/config/_LoggerConfig.ts', 'application/config/LoggerConfig.ts', context);
-      this.template('ts/config/_RoutesConfig.ts', 'application/config/RoutesConfig.ts', context);
+      this.template('application/config/AppConfig.ts', 'application/config/AppConfig.ts', context);
+      this.template('application/config/DatabaseConfig.ts', 'application/config/DatabaseConfig.ts', context);
+      this.template('application/config/ExpressConfig.ts', 'application/config/ExpressConfig.ts', context);
+      this.template('application/config/LoggerConfig.ts', 'application/config/LoggerConfig.ts', context);
+      this.template('application/config/RoutesConfig.ts', 'application/config/RoutesConfig.ts', context);
 
       // ts controllers file
-      this.template('ts/controllers/_HomeController.ts', 'application/controllers/HomeController.ts', context);
+      this.template('application/controllers/HomeController.ts', 'application/controllers/HomeController.ts', context);
 
       // ts filters files
-      this.template('ts/filters/_AuthFilter.ts', 'application/filters/AuthFilter.ts', context);
+      this.template('application/filters/AuthFilter.ts', 'application/filters/AuthFilter.ts', context);
 
       // ts models files
-      this.template('ts/models/_PostModel.ts', 'application/models/PostModel.ts', context);
-      this.template('ts/models/_UserModel.ts', 'application/models/UserModel.ts', context);
+      this.template('application/models/PostModel.ts', 'application/models/PostModel.ts', context);
+      this.template('application/models/UserModel.ts', 'application/models/UserModel.ts', context);
 
     },
 
@@ -126,7 +157,7 @@ var AnOxGenerator = yeoman.generators.Base.extend({
     var self = this;
     this.installDependencies({
       callback: function () {
-        this.spawnCommand('grunt', ['build_app']).on('close', function () {
+        this.spawnCommand('grunt', ['deploy']).on('close', function () {
           self.log(chalk.green('Ox is ready'));
 
           var str = 'Follow commands \'cd ' + self.app_name + '\' and then ' + '\'node ./build/app.js\' to start the server';
