@@ -1,6 +1,6 @@
 /// <reference path="../../app.ts" />
 
-module <%= name_space %> {
+module <%= app_namespace %> {
 
     export class HomeController extends OX.Controller {
 
@@ -8,14 +8,16 @@ module <%= name_space %> {
 
         }
 
-        public constructor(){
+        public constructor() {
             super();
         }
 
-        public index(req:OX.Request, res:OX.Response){
-            var userModel:UserModel = <UserModel>this.getModel(UserModel);
-            var data = userModel.getUser();
-            res.send(data);
+        public home(req:OX.Request, res:OX.Response) {
+            res.render('index', {title: 'OX'});
+        }
+
+        public apiHome(req:OX.Request, res:OX.Response) {
+            res.send({status: 'success', message: 'Hello world'});
         }
     }
 }

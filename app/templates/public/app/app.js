@@ -1,57 +1,25 @@
-var _ = require("underscore");
-var Backbone = require("backbone");
-var Marionette = require("marionette");
+var angular = require('angular');
+var app = angular.module('Tello', ['ui.router']);
 
-//
-var HeaderView = require('./views/item/HeaderView');
-var FooterView = require('./views/item/FooterView');
-var IndexView = require('./views/item/IndexView');
+app.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
 
-/**
- * Application Object
- */
-var App = new Marionette.Application();
+    //$locationProvider.html5Mode(true);
 
-/**
- * Listening for before start event
- */
-App.on("before:start", function (options) {
-  console.log('App: Before app start');
+
+    $urlRouterProvider.otherwise('/login');
+
+    $stateProvider.state('signUp', {
+        url: '/signup',
+        template: 'I am signup baby...'
+    });
+
+    $stateProvider.state('login', {
+        url: '/login',
+        template: require('./templates/LoginFormTemplate')
+    });
+
 });
 
+app.controller('UserController', require('./controllers/UserController'));
 
-/**
- * Listening for start event
- */
-App.on("start", function (options) {
-  if (Backbone.history) {
-    Backbone.history.start();
-  }
-
-  App.addRegions({
-    header : '#header-region',
-    footer : '#footer-region',
-    content : '#content-region'
-  });
-
-  App.header.show(new HeaderView());
-  App.footer.show(new FooterView());
-  App.content.show(new IndexView());
-
-  console.log('App: On app start');
-});
-
-
-/**
- * Start the app
- */
-$( document ).ready(function() {
-  console.log('App: will start');
-  App.start();
-});
-
-
-/**
- * Export the app object
- */
-module.exports = App;
+module.exports = app;

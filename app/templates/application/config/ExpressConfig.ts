@@ -1,6 +1,6 @@
 /// <reference path="../../app.ts" />
 
-module <%= name_space %> {
+module <%= app_namespace %> {
 
     export class ExpressConfig implements OX.ExpressConfig {
 

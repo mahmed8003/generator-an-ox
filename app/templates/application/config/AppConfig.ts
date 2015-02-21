@@ -1,27 +1,36 @@
 /// <reference path="../../app.ts" />
 
-module <%= name_space %> {
+module <%= app_namespace %> {
 
     export class AppConfig implements OX.AppConfig {
 
         public config(config:OX.ConfigEnv<OX.AppInfo>):void {
 
             config.development = {
-                name: 'Sparky-Dev',
-                enableDatabase: false
+                name: '<%= app_name %>',
+                enableDatabase: true,
+                enableRedis: false
             };
 
             config.production = {
-                name: 'Sparky-Pro',
-                enableDatabase: false
+                name: '<%= app_name %>',
+                enableDatabase: true,
+                enableRedis: false
             };
 
             config.test = {
-                name: 'Sparky-Test',
-                enableDatabase: false
+                name: '<%= app_name %>',
+                enableDatabase: true,
+                enableRedis: false
             }
 
         }
+
+        /**
+         * App Specif static constants
+         *
+         */
+        public static SECRET_KEY:String = 'SECRET-KEY-1234-ABCD';
 
     }
 

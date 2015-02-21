@@ -1,6 +1,6 @@
 /// <reference path="../../app.ts" />
 
-module <%= name_space %> {
+module <%= app_namespace %> {
 
     export class LoggerConfig implements OX.LoggerConfig {
 
@@ -24,7 +24,7 @@ module <%= name_space %> {
                     colorize: true
                 })],
                 exitOnError: true
-            }
+            };
 
             config.test = {
                 transports: [new OX.ConsoleTransport({

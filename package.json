@@ -1,7 +1,7 @@
 {
   "name": "generator-an-ox",
-  "version": "1.3.0",
-  "description": "Yeoman generator for an-ox framework, An-Ox framework using typescript, marionette and express as back end",
+  "version": "2.0.0",
+  "description": "Yeoman generator for an-ox framework, An-Ox framework using typescript, angularjs and express as back end",
   "license": "MIT",
   "main": "app/index.js",
   "repository": {
@@ -27,7 +27,7 @@
     "an-ox",
     "MVC",
     "typescript",
-    "marionette"
+    "angular"
   ],
   "dependencies": {
     "yeoman-generator": "^0.17.0",

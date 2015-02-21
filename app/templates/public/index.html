@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="Tello">
 <head>
     <meta charset="utf-8">
     <title>OX</title>
     <script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="vendor/underscore/underscore.js"></script>
-    <script type="text/javascript" src="vendor/backbone/backbone.js"></script>
-    <script type="text/javascript" src="vendor/marionette/lib/backbone.marionette.min.js"></script>
     <script type="text/javascript" src="vendor/materialize/dist/js/materialize.min.js"></script>
+    <script type="text/javascript" src="vendor/angular/angular.min.js"></script>
+    <script type="text/javascript" src="vendor/angular-ui-router/release/angular-ui-router.min.js"></script>
 
     <script type="text/javascript" src="dist/app.js"></script>
 
@@ -16,18 +16,17 @@
           media="screen,projection"/>
 </head>
 <body>
-
-<div id="header-region" class="container">
-
-</div>
-
-<div id="content-region" class="container">
-
-</div>
-
-<footer id="footer-region" class="page-footer green">
-
-</footer>
-
+<nav class="light-blue lighten-1" role="navigation">
+    <div class="container">
+        <div class="nav-wrapper"><a id="logo-container" href="#" class="brand-logo">Logo</a>
+            <ul class="right">
+                <li><a ui-sref="signUp">Sign Up</a></li>
+                <li><a ui-sref="login">Login</a></li>
+            </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+        </div>
+    </div>
+</nav>
+<div ui-view></div>
 </body>
 </html>
